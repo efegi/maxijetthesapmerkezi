@@ -1281,10 +1281,10 @@ function processData(s){
   DATA.kasa = {
     date: kasa[1]?.[14] || kasa[0]?.[14] || '',
     // Üst büyük kutular
-    gelir: cell(0, 0),         // A1
-    giderKurye: cell(0, 3),    // D1
-    masraf: cell(0, 6),        // G1
-    netKalan: cell(0, 9),      // J1 → KALAN (68.346₺) — net kalan
+    gelir: cell(2, 1),         // B3
+    giderKurye: cell(2, 4),    // E3
+    masraf: cell(15, 7),       // H16
+    netKalan: cell(1, 10),     // K2
     // İşletme/Kurye toplam tabloları
     isletmeToplam: cell(2, 1), // B3
     kuryeOdeme: cell(2, 3),    // D3
@@ -1555,10 +1555,10 @@ function renderKasa(){
   document.getElementById('kasaDate').textContent = k.date || new Date().toLocaleDateString('tr-TR');
 
   const stats = [
-    {label:'Toplam Gelir',value:fmt(k.gelir),meta:'A1 hücresinden',color:'positive'},
-    {label:'Kurye Gideri',value:fmt(k.giderKurye),meta:'D1 hücresinden',color:''},
-    {label:'Masraf',value:fmt(k.masraf),meta:'G1 hücresinden',color:''},
-    {label:'Net Kalan',value:fmt(k.netKalan),meta:'J1 (KALAN) hücresinden',color:'positive'}
+    {label:'Toplam Gelir',value:fmt(k.gelir),meta:'B3 hücresinden',color:'positive'},
+    {label:'Kurye Gideri',value:fmt(k.giderKurye),meta:'E3 hücresinden',color:''},
+    {label:'Masraf',value:fmt(k.masraf),meta:'H16 hücresinden',color:''},
+    {label:'Net Kalan',value:fmt(k.netKalan),meta:'K2 hücresinden',color:'positive'}
   ];
   document.getElementById('kasaStats').innerHTML = stats.map(s=>`
     <div class="stat-card">
